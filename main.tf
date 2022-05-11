@@ -123,10 +123,10 @@ module "eks" {
       max_size     = 10
       desired_size = 1
 
-      instance_types = ["t2.micro"]
+      instance_types                        = ["t2.micro"]
       attach_cluster_primary_security_group = true
       vpc_security_group_ids                = [aws_security_group.worker_group_mgmt_one.id]
-      capacity_type  = "ON DEMAND"
+      capacity_type                         = "ON DEMAND"
       labels = {
         Environment = "test"
         GithubRepo  = "terraform-aws-eks"
