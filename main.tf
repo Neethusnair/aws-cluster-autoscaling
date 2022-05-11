@@ -116,18 +116,17 @@ module "eks" {
   #   vpc_security_group_ids                = [aws_security_group.worker_group_mgmt_one.id]
   # }
 
-  eks_managed_node_groups = {
-    blue = {}
-    green = {
-      min_size     = 1
-      max_size     = 10
-      desired_size = 1
+  node_groups = {
+    example = {
+      desired_capacity = 1
+      max_capacity     = 10
+      min_capacity     = 1
 
       instance_types                        = ["t2.micro"]
       attach_cluster_primary_security_group = true
-      vpc_security_group_ids                = [aws_security_group.worker_group_mgmt_one.id]
+      additional_security_group_ids         = [aws_security_group.worker_group_mgmt_one.id]
       capacity_type                         = "ON DEMAND"
-      labels = {
+      k8s_labels = {
         Environment = "test"
         GithubRepo  = "terraform-aws-eks"
         GithubOrg   = "terraform-aws-modules"
