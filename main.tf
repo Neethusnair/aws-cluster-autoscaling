@@ -125,7 +125,7 @@ module "eks" {
       instance_types                        = ["t2.micro"]
       attach_cluster_primary_security_group = true
       additional_security_group_ids         = [aws_security_group.worker_group_mgmt_one.id]
-      capacity_type                         = "ON DEMAND"
+      capacity_type                         = "ON_DEMAND"
       k8s_labels = {
         Environment = "test"
         GithubRepo  = "terraform-aws-eks"
