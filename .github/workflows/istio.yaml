@@ -19,11 +19,11 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v2
       
-#     - name: Kubectl
-#       uses: azure/setup-kubectl@v2.0
-#       with:
-#           version: 'v1.23.6'
-#       id: install      
+    - name: Kubectl
+      uses: azure/setup-kubectl@v2.0
+      with:
+          version: 'v1.23.6'
+      id: install      
 
     ## AWS Credentials
     - uses: aws-actions/configure-aws-credentials@v1
